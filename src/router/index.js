@@ -109,26 +109,6 @@ export const constantRoutes = [
     ]
   },
   {
-    path: '/tqtest',
-    component: Layout,
-    hidden: false,
-    redirect: '/guide/index',
-    alwaysShow: true,
-    name: 'tqExample???', // ??
-    meta: {
-      title: 'tqExample',
-      icon: 'example'
-    },
-    children: [
-      {
-        path: 'index', // ???
-        component: () => import('@/views/tqtest/eltooltips.vue'),
-        name: 'Tqtest???',
-        meta: { title: 'Tqtest', icon: 'guide', noCache: true }
-      }
-    ]
-  },
-  {
     path: '/profile',
     component: Layout,
     redirect: '/profile/index',
@@ -150,6 +130,27 @@ export const constantRoutes = [
  */
 export const asyncRoutes = [
   {
+    path: '/tqtest',
+    component: Layout,
+    hidden: false,
+    redirect: '/guide/index',
+    alwaysShow: true,
+    name: 'tq',
+    meta: {
+      title: 'tqExample',
+      icon: 'example',
+      roles: ['admin', 'editor'] // you can set roles in root nav
+    },
+    children: [
+      {
+        path: 'index11',
+        component: () => import('@/views/tqtest/eltooltips.vue'),
+        name: 'Tqtest',
+        meta: { title: 'Tqtest', icon: 'guide', noCache: true, roles: ['admin'] }
+      }
+    ]
+  },
+  {
     path: '/permission',
     component: Layout,
     redirect: '/permission/page',
@@ -167,7 +168,7 @@ export const asyncRoutes = [
         name: 'PagePermission',
         meta: {
           title: 'Page Permission',
-          roles: ['admin'] // or you can only set roles in sub nav
+          roles: ['editor'] // or you can only set roles in sub nav
         }
       },
       {

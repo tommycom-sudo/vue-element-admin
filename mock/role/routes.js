@@ -74,6 +74,26 @@ export const constantRoutes = [
 
 export const asyncRoutes = [
   {
+    path: '/tqtest',
+    component: 'layout/Layout',
+    redirect: '/tqtest/index',
+    alwaysShow: true,
+    name: 'tq', // 仅用于代码中辨断
+    meta: {
+      title: 'tqExample',
+      icon: 'example',
+      roles: ['editor'] // you can set roles in root nav // 'admin',
+    },
+    children: [
+      {
+        path: 'index11',
+        component: () => import('@/views/tqtest/eltooltips.vue'),
+        name: 'Tqtest', // 用于代码中辨断
+        meta: { title: 'Tqtest', icon: 'guide', noCache: true, roles: ['admin'] }
+      }
+    ]
+  },
+  {
     path: '/permission',
     component: 'layout/Layout',
     redirect: '/permission/index',
